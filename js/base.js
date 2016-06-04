@@ -21,9 +21,9 @@ function initialize(){
 		switch(data.elements[point].tags.amenity){
 			case 'bicycle_rental' : L.marker([data.elements[point].lat, data.elements[point].lon], {icon: bicicletarIcon}).bindPopup('Bicicletar '+data.elements[point].tags.name).addTo(bicicletar);
 				break;
-			case 'bicycle_parking' : L.marker([data.elements[point].lat, data.elements[point].lon], {icon: bicicletarioIcon}).bindPopup('Bicicletario '+data.elements[point].tags.name).addTo(bicicletario);
+			case 'bicycle_parking' : L.marker([data.elements[point].lat, data.elements[point].lon], {icon: bicicletarioIcon}).bindPopup(data.elements[point].tags.name).addTo(bicicletario);
 				break;
-			case 'fuel' : L.marker([data.elements[point].lat, data.elements[point].lon], {icon: airPumpIcon}).bindPopup('Posto '+data.elements[point].tags.name).addTo(airPump);
+			case 'fuel' : L.marker([data.elements[point].lat, data.elements[point].lon], {icon: airPumpIcon}).bindPopup(data.elements[point].tags.name).addTo(airPump);
 				break;
 		}	
 	}	
@@ -40,12 +40,12 @@ function initialize(){
 	});
 	var base = {
 			"Ruas": streets,
-			"Ciclofaixas": cycle
+			"Cicloviária": cycle
 	};
 	var layers = {
 			"Bicicletar": bicicletar,
-			"Bicicletario": bicicletario,
-			"Posto(Bombas de Ar)": airPump
+			"Bicicletário": bicicletario,
+			"Posto (Bombas de Ar)": airPump
 	};
 	L.control.layers(base,layers).addTo(map);	
 	
