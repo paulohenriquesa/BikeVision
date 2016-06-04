@@ -4,13 +4,5 @@ body{
 }
 html,body, #map{
 	height: 100%;
-	width: 100%;
-	
-}
-#control_panel{
-	width: 150px;
-	background-color: white;
-	border-radius: 5px;
-	box-shadow: 2px 2px 2px #aaa;
-	position: relative;
+	width: 100%;	
 }

@@ -25,11 +25,8 @@ function initialize(){
 				break;
 			case 'fuel' : L.marker([data.elements[point].lat, data.elements[point].lon], {icon: airPumpIcon}).bindPopup('Posto '+data.elements[point].tags.name).addTo(airPump);
 				break;
-		}
-			
+		}	
 	}	
-	
-	
 	var streetsURL = 'http://{s}.tile.osm.org/{z}/{x}/{y}.png';
 	var cyclesURL =  'https://{s}.tile.thunderforest.com/cycle/{z}/{x}/{y}.png';
 
@@ -51,8 +48,29 @@ function initialize(){
 			"Posto(Bombas de Ar)": airPump
 	};
 	L.control.layers(base,layers).addTo(map);	
+	
+	function onLocationFound(e) {
+		var radius = e.accuracy / 2;
+		var cursor = L.icon({
+			iconUrl: 'js/icons/cursor.png',
+			iconSize: [25, 25]
+		});
+		L.marker(e.latlng,{icon: cursor}).addTo(map).bindPopup("You are within " + radius + " meters from this point").openPopup();
+
+		L.circle(e.latlng, radius).addTo(map);
+	}
+
+	function onLocationError(e) {
+		alert(e.message);
+	}
+
+	map.on('locationfound', onLocationFound);
+	map.on('locationerror', onLocationError);
+	
 	map.locate({setView:true});
 }
+
+
 //bbox: -4.129339914914841,-38.920440673828125,-3.4777819106581633,-37.766876220703125
 //http://overpass-api.de/api/interpreter?data=
 //[out:json][timeout:60];(node["amenity"="bicycle_rental"]('+ bbox + ');node["amenity"="bicycle_parking"]('+ bbox + ');node["amenity"="fuel"]('+ bbox + '););out;
