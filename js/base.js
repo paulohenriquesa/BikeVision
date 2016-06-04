@@ -53,7 +53,7 @@ function initialize(){
 		var radius = e.accuracy / 2;
 		var cursor = L.icon({
 			iconUrl: 'js/icons/cursor.png',
-			iconSize: [25, 25]
+			iconSize: [15, 15]
 		});
 		L.marker(e.latlng,{icon: cursor}).addTo(map).bindPopup("You are within " + radius + " meters from this point").openPopup();
 
