@@ -39,7 +39,7 @@ function initialize(){
 		layers: [streets, bicicletar, bicicletario, airPump]
 	});
 	var base = {
-			"Ruas": streets,
+			"Rodoviário": streets,
 			"Cicloviária": cycle
 	};
 	var layers = {
@@ -55,7 +55,7 @@ function initialize(){
 			iconUrl: 'js/icons/cursor.png',
 			iconSize: [15, 15]
 		});
-		L.marker(e.latlng,{icon: cursor}).addTo(map).bindPopup("You are within " + radius + " meters from this point").openPopup();
+		L.marker(e.latlng,{icon: cursor}).addTo(map).bindPopup("Precisão " + radius + " metros deste ponto").openPopup();
 
 		L.circle(e.latlng, radius).addTo(map);
 	}
