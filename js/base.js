@@ -35,7 +35,7 @@ function initialize(){
 			L.marker([data.elements[point].lat, data.elements[point].lon], {icon: bicicletariaIcon}).bindPopup('Bicicletaria '+data.elements[point].tags.name).addTo(bicicletaria);
 		}
 	}	
-	var osmURL = 'http://{s}.tile.osm.org/{z}/{x}/{y}.png';
+	var osmURL = 'https:\/\/a.tiles.mapbox.com\/v4\/mapbox.streets\/{z}\/{x}\/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpbTgzcHQxMzAxMHp0eWx4bWQ1ZHN2NGcifQ.WVwjmljKYqKciEZIC3NfLA';
 	var cyclesURL =  'http://tile.lonvia.de/cycling/{z}/{x}/{y}.png';
 
 	var streets = L.tileLayer(osmURL,{maxZoom: 18});
