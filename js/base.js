@@ -22,12 +22,31 @@ function initialize(){
 		iconUrl: 'js/icons/bikeshop.png',
 		iconSize: [25, 25]
 	});
-	// https://github.com/perliedman/leaflet-control-geocoder
- 	var geocoder = new L.Control.geocoder({position: "topleft", collapsed: true, showResultIcons: true});
- 	map.addControl(geocoder);
- 	geocoder.markGeocode = function(result) {
+   map.addControl(layers);
+
+   var lat  = ( getCookie("hikebikemap_lat" ) ? getCookie("hikebikemap_lat" ) : 50.0 );
+   var lon  = ( getCookie("hikebikemap_lon" ) ? getCookie("hikebikemap_lon" ) : 11.0 );
+   var zoom = ( getCookie("hikebikemap_zoom") ? getCookie("hikebikemap_zoom") : 6 );
+
+   map.setView(new L.LatLng(lat, lon), zoom);
+   //map.panTo(new L.LatLng(lat, lon), zoom);
+   
+//   var permalink = new L.Control.Permalink({text: 'Permalink', layers: layers, useAnchor: false, useLocation: true});
+   var permalink = new L.Control.Permalink({text: 'Permalink', layers: layers, useAnchor: false, useLocation: false});
+   map.addControl(permalink);
+
+   // https://github.com/perliedman/leaflet-control-geocoder
+   var geocoder = new L.Control.geocoder({position: "topleft", collapsed: true, showResultIcons: true});
+   map.addControl(geocoder);
+   geocoder.markGeocode = function(result) {
 	map.fitBounds(result.bbox);
-   	};
+   };
+
+   map.on('moveend', function () {
+     setCookie("hikebikemap_lat",  map.getCenter().lat,64);
+     setCookie("hikebikemap_lon",  map.getCenter().lng,64);
+     setCookie("hikebikemap_zoom", map.getZoom(),      64);
+   });
 	
 	for( var point in data.elements){
 		switch(data.elements[point].tags.amenity){
