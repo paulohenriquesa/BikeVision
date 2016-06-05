@@ -73,11 +73,12 @@ function initialize(){
 	function onLocationError(e) {
 		alert(e.message);
 	}
-
-	map.on('locationfound', onLocationFound);
-	map.on('locationerror', onLocationError);
 	
-	map.locate({setView:true});
+	function Locale(){
+    	map.locate({setView: true, maxZoom: 17});
+    	map.on('locationfound', onLocationFound);
+	map.on('locationerror', onLocationError);
+	};
 }
 
 
