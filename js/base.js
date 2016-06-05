@@ -22,7 +22,7 @@ function initialize(){
 		iconUrl: 'js/icons/bikeshop.png',
 		iconSize: [25, 25]
 	});
-   map.addControl(layers);
+   //map.addControl(layers);
 
    var lat  = ( getCookie("hikebikemap_lat" ) ? getCookie("hikebikemap_lat" ) : 50.0 );
    var lon  = ( getCookie("hikebikemap_lon" ) ? getCookie("hikebikemap_lon" ) : 11.0 );
