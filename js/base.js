@@ -38,8 +38,8 @@ function initialize(){
 	var osmURL = 'https:\/\/a.tiles.mapbox.com\/v4\/mapbox.streets\/{z}\/{x}\/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpbTgzcHQxMzAxMHp0eWx4bWQ1ZHN2NGcifQ.WVwjmljKYqKciEZIC3NfLA';
 	var cyclesURL =  'http://tile.lonvia.de/cycling/{z}/{x}/{y}.png';
 
-	var streets = L.tileLayer(osmURL,{maxZoom: 18});
-	var cycle = L.tileLayer(cyclesURL,{maxZoom: 18});
+	var streets = L.tileLayer(osmURL,{maxZoom: 16});
+	var cycle = L.tileLayer(cyclesURL,{maxZoom: 16});
 	
 	var map = L.map('map',{
 		center: [-3.7304512, -38.5217989],
@@ -50,14 +50,17 @@ function initialize(){
 			"Open Street Map": streets,
 			
 	};
-	var layers = {
+	var mascara = {
 			"Cicloviária": cycle,
+			
+	};
+	var layers = {
 			"Bicicletar": bicicletar,
 			"Bicicletário": bicicletario,
 			"Bicicletária": bicicletaria,
 			"Posto (Bombas de Ar)": airPump
 	};
-	L.control.layers(base,layers).addTo(map);	
+	L.control.layers(base,mascara,layers).addTo(map);	
 	
 	function onLocationFound(e) {
 		var radius = e.accuracy / 2;
