@@ -65,6 +65,12 @@ function initialize(){
    	geocoder.markGeocode = function(result) {
 	map.fitBounds(result.bbox);
    	};
+
+	lc = L.control.locate({
+    	strings: {
+        title: "Show me where I am, yo!"
+    	}
+	}).addTo(map);	
 	
 	function onLocationFound(e) {
 		var radius = e.accuracy / 2;
