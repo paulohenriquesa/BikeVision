@@ -44,7 +44,7 @@ function initialize(){
 	var map = L.map('map',{
 		center: [-3.7304512, -38.5217989],
 		zoom: 15,
-		layers: [streets, cycle, bicicletar, bicicletario, airPump, bicicletaria]
+		layers: [streets, cycle, bicicletar, bicicletario,bicicletaria, airPump]
 	});
 	var base = {
 			"Open Street Map": streets,
