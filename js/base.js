@@ -22,6 +22,13 @@ function initialize(){
 		iconUrl: 'js/icons/bikeshop.png',
 		iconSize: [25, 25]
 	});
+	// https://github.com/perliedman/leaflet-control-geocoder
+ 	var geocoder = new L.Control.geocoder({position: "topleft", collapsed: true, showResultIcons: true});
+ 	map.addControl(geocoder);
+ 	geocoder.markGeocode = function(result) {
+	map.fitBounds(result.bbox);
+   	};
+	
 	for( var point in data.elements){
 		switch(data.elements[point].tags.amenity){
 			case 'bicycle_rental' : L.marker([data.elements[point].lat, data.elements[point].lon], {icon: bicicletarIcon}).bindPopup('Bicicletar '+data.elements[point].tags.name).addTo(bicicletar);
