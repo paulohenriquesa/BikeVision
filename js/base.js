@@ -58,20 +58,18 @@ function initialize(){
 			"Posto (Bombas de Ar)": airPump
 	};
 	L.control.layers(base,layers).addTo(map);
-	
+	//https://github.com/domoritz/leaflet-locatecontrol
+	lc = L.control.locate({
+    	strings: {
+        title: "Show me where I am, yo!"
+    	}
+	}).addTo(map);	
 	// https://github.com/perliedman/leaflet-control-geocoder
    	var geocoder = new L.Control.geocoder({position: "topleft", collapsed: true, showResultIcons: true});
    	map.addControl(geocoder);
    	geocoder.markGeocode = function(result) {
 	map.fitBounds(result.bbox);
    	};
-
-	lc = L.control.locate({
-    	strings: {
-        title: "Show me where I am, yo!"
-    	}
-	}).addTo(map);	
-	
 	function onLocationFound(e) {
 		var radius = e.accuracy / 2;
 		var cursor = L.icon({
