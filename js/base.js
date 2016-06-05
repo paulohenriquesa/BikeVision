@@ -38,8 +38,8 @@ function initialize(){
 	var osmURL = 'https:\/\/a.tiles.mapbox.com\/v4\/mapbox.streets\/{z}\/{x}\/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpbTgzcHQxMzAxMHp0eWx4bWQ1ZHN2NGcifQ.WVwjmljKYqKciEZIC3NfLA';
 	var cyclesURL =  'http://tile.lonvia.de/cycling/{z}/{x}/{y}.png';
 
-	var streets = L.tileLayer(osmURL,{maxZoom: 18});
-	var cycle = L.tileLayer(cyclesURL,{maxZoom: 18});
+	var streets = L.tileLayer(osmURL,{maxZoom: 22});
+	var cycle = L.tileLayer(cyclesURL,{maxZoom: 22});
 	
 	var map = L.map('map',{
 		center: [-3.7426, -38.5097],
