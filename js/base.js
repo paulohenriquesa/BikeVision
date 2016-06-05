@@ -42,7 +42,7 @@ function initialize(){
 	var cycle = L.tileLayer(cyclesURL,{maxZoom: 14});
 	
 	var map = L.map('map',{
-		center: [-3.7304512, -38.5217989],
+		center: [-3.7426, -38.5097],
 		zoom: 14,
 		layers: [streets, cycle, bicicletar, bicicletario, airPump, bicicletaria]
 	});
