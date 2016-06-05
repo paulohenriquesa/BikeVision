@@ -17,6 +17,11 @@ function initialize(){
 		iconUrl: 'js/icons/airPump_icon.png',
 		iconSize: [25, 25]
 	});
+	var bicicletaria = new L.layerGroup();
+	var bicicletariaIcon = L.icon({
+		iconUrl: 'js/icons/bikeshop.png',
+		iconSize: [25, 25]
+	});
 	for( var point in data.elements){
 		switch(data.elements[point].tags.amenity){
 			case 'bicycle_rental' : L.marker([data.elements[point].lat, data.elements[point].lon], {icon: bicicletarIcon}).bindPopup('Bicicletar '+data.elements[point].tags.name).addTo(bicicletar);
@@ -26,25 +31,30 @@ function initialize(){
 			case 'fuel' : L.marker([data.elements[point].lat, data.elements[point].lon], {icon: airPumpIcon}).bindPopup(data.elements[point].tags.name).addTo(airPump);
 				break;
 		}	
+		if(data.elements[point].tags.shop == "bicycle"){
+			L.marker([data.elements[point].lat, data.elements[point].lon], {icon: bicicletariaIcon}).bindPopup('Bicicletaria '+data.elements[point].tags.name).addTo(bicicletaria);
+		}
 	}	
-	var streetsURL = 'http://{s}.tile.osm.org/{z}/{x}/{y}.png';
-	var cyclesURL =  'https://{s}.tile.thunderforest.com/cycle/{z}/{x}/{y}.png';
+	var osmURL = 'http://{s}.tile.osm.org/{z}/{x}/{y}.png';
+	var cyclesURL =  'http://tile.lonvia.de/cycling/{z}/{x}/{y}.png';
 
-	var streets = L.tileLayer(streetsURL,{maxZoom: 18});
+	var streets = L.tileLayer(osmURL,{maxZoom: 18});
 	var cycle = L.tileLayer(cyclesURL,{maxZoom: 18});
 	
 	var map = L.map('map',{
 		center: [-3.7304512, -38.5217989],
 		zoom: 15,
-		layers: [streets, bicicletar, bicicletario, airPump]
+		layers: [streets, cycle, bicicletar, bicicletario, airPump, bicicletaria]
 	});
 	var base = {
-			"Rodoviário": streets,
-			"Cicloviária": cycle
+			"Open Street Map": streets,
+			
 	};
 	var layers = {
+			"Cicloviária": cycle,
 			"Bicicletar": bicicletar,
 			"Bicicletário": bicicletario,
+			"Bicicletária": bicicletaria,
 			"Posto (Bombas de Ar)": airPump
 	};
 	L.control.layers(base,layers).addTo(map);	
