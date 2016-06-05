@@ -6,3 +6,20 @@ html,body, #map{
 	height: 100%;
 	width: 100%;	
 }
+#locate{
+	position: absolute;
+	z-index: 10000;
+	top:  74px;
+	left: 16px;
+	height: 16px;
+	width: 16px;
+	border-top: 1px solid #000040;
+	border-left: 1px solid #000040;
+	border-bottom: 1px solid #000040;
+	border-right: 1px solid #000040;
+	padding: 2px 2px;
+	margin-right: 200px;
+	background-color: #EEE;
+	cursor: default;
+	opacity: 0.7;
+}
