@@ -40,7 +40,6 @@ function initialize(){
 	var BING_KEY = 'AuhiCJHlGzhg93IqUH_oCpl_-ZUrIE6SPftlyGYUvr9Amx5nzA-WqGcPquyFZl4L';
 
 	var streets = L.tileLayer(osmURL,{maxZoom: 19});
-	var satelite = L.tileLayer(sateURL,{maxZoom: 19});
 	var cycle = L.tileLayer(cyclesURL,{maxZoom: 19});
 	var bingLayer = L.tileLayer.bing(BING_KEY);
 	
