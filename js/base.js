@@ -44,7 +44,7 @@ function initialize(){
 	var streets = L.tileLayer(osmURL,{maxZoom: 19});
 	var satelite = L.tileLayer(sateURL,{maxZoom: 19});
 	var cycle = L.tileLayer(cyclesURL,{maxZoom: 19});
-	var bingLayer = L.tileLayer.bing(BING_KEY);
+	var bingLayer = L.tileLayer(BING_KEY,{maxZoom: 19});
 	
 	var map = L.map('map',{
 		center: [-3.7487, -38.5243],
@@ -53,15 +53,16 @@ function initialize(){
 	});
 	var base = {
 			"Open Street Map": streets,
-			"Satélite": bingLayer,
+			"BING": bingLayer,
+			"Satélite": satelite,
 			
 	};
 	var layers = {
 			"Infra Cicloviária": cycle,
 			"Bicicletar": bicicletar,
 			"Bicicletário": bicicletario,
-			"Bicicletaria": bicicletaria,
-			"Posto (Bombas de Ar)": airPump
+			"Posto (Bombas de Ar)": airPump,
+			"Bicicletaria": bicicletaria
 	};
 	L.control.layers(base,layers).addTo(map);
 	//https://github.com/domoritz/leaflet-locatecontrol
