@@ -40,10 +40,10 @@ function initialize(){
 	var osmURL = 'http://{s}.tile.osm.org/{z}/{x}/{y}.png';
 	var cyclesURL =  'http://tile.lonvia.de/cycling/{z}/{x}/{y}.png';
 	
-	var mapboLayer = L.tileLayer(mapboxURL,{maxZoom: 19});
+	var mapboLayer = L.tileLayer(mapboxURL,{maxZoom: 18});
 	var bingLayer = L.tileLayer.bing(BING_KEY);
-	var omsLayer = L.tileLayer(osmURL,{maxZoom: 19});
-	var cycle = L.tileLayer(cyclesURL,{maxZoom: 19});
+	var omsLayer = L.tileLayer(osmURL,{maxZoom: 18});
+	var cycle = L.tileLayer(cyclesURL,{maxZoom: 18});
 	
 	
 	var map = L.map('map',{
