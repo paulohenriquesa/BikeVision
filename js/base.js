@@ -39,12 +39,12 @@ function initialize(){
 	var sateURL = 'https://mts1.google.com/vt/lyrs=m@186112443&hl=x-local&src=app&x=1325&y=3143&z=13&s=Galile';
 	var cyclesURL =  'http://tile.lonvia.de/cycling/{z}/{x}/{y}.png';
 	
-	var BING_KEY = 'AuhiCJHlGzhg93IqUH_oCpl_-ZUrIE6SPftlyGYUvr9Amx5nzA-WqGcPquyFZl4L'
+	var BING_KEY = 'AuhiCJHlGzhg93IqUH_oCpl_-ZUrIE6SPftlyGYUvr9Amx5nzA-WqGcPquyFZl4L';
 
 	var streets = L.tileLayer(osmURL,{maxZoom: 19});
 	var satelite = L.tileLayer(sateURL,{maxZoom: 19});
 	var cycle = L.tileLayer(cyclesURL,{maxZoom: 19});
-	var bingLayer = L.tileLayer.bing(BING_KEY)
+	var bingLayer = L.tileLayer.bing(BING_KEY);
 	
 	var map = L.map('map',{
 		center: [-3.7487, -38.5243],
