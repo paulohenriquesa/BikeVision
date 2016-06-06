@@ -50,7 +50,7 @@ function initialize(){
 	});
 	var base = {
 			"Open Street Map": streets,
-			"BING": bingLayer,
+			"Bing Maps": bingLayer,
 	};
 	var layers = {
 			"Infra Cicloviária": cycle,
