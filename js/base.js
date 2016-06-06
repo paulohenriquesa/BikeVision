@@ -44,7 +44,7 @@ function initialize(){
 	var streets = L.tileLayer(osmURL,{maxZoom: 19});
 	var satelite = L.tileLayer(sateURL,{maxZoom: 19});
 	var cycle = L.tileLayer(cyclesURL,{maxZoom: 19});
-	var bingLayer = L.tileLayer.big(BING_KEY,{maxZoom: 19});
+	var bingLayer = L.tileLayer.Bing(BING_KEY,{maxZoom: 19});
 	
 	var map = L.map('map',{
 		center: [-3.7487, -38.5243],
