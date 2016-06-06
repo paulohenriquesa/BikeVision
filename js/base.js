@@ -38,10 +38,13 @@ function initialize(){
 	var osmURL = 'https:\/\/a.tiles.mapbox.com\/v4\/mapbox.streets\/{z}\/{x}\/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpbTgzcHQxMzAxMHp0eWx4bWQ1ZHN2NGcifQ.WVwjmljKYqKciEZIC3NfLA';
 	var sateURL = 'https://mts1.google.com/vt/lyrs=m@186112443&hl=x-local&src=app&x=1325&y=3143&z=13&s=Galile';
 	var cyclesURL =  'http://tile.lonvia.de/cycling/{z}/{x}/{y}.png';
+	
+	var BING_KEY = 'AuhiCJHlGzhg93IqUH_oCpl_-ZUrIE6SPftlyGYUvr9Amx5nzA-WqGcPquyFZl4L'
 
 	var streets = L.tileLayer(osmURL,{maxZoom: 19});
 	var satelite = L.tileLayer(sateURL,{maxZoom: 19});
 	var cycle = L.tileLayer(cyclesURL,{maxZoom: 19});
+	var bingLayer = L.tileLayer.bing(BING_KEY)
 	
 	var map = L.map('map',{
 		center: [-3.7487, -38.5243],
@@ -50,7 +53,7 @@ function initialize(){
 	});
 	var base = {
 			"Open Street Map": streets,
-			"Satélite": satelite,
+			"Satélite": bingLayer,
 			
 	};
 	var layers = {
