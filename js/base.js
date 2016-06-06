@@ -49,7 +49,7 @@ function initialize(){
 	var map = L.map('map',{
 		center: [-3.7487, -38.5243],
 		zoom: 14,
-		layers: [mapboLayer, bingLayer,omsLayer, cycle, bicicletar, bicicletario, airPump, bicicletaria]
+		layers: [mapboLayer, cycle, bicicletar, bicicletario, airPump, bicicletaria]
 	});
 	var base = {
 			"MapBox": mapboLayer,
