@@ -35,22 +35,26 @@ function initialize(){
 			L.marker([data.elements[point].lat, data.elements[point].lon], {icon: bicicletariaIcon}).bindPopup('Bicicletaria '+data.elements[point].tags.name).addTo(bicicletaria);
 		}
 	}	
-	var osmURL = 'https:\/\/a.tiles.mapbox.com\/v4\/mapbox.streets\/{z}\/{x}\/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpbTgzcHQxMzAxMHp0eWx4bWQ1ZHN2NGcifQ.WVwjmljKYqKciEZIC3NfLA';
-	var cyclesURL =  'http://tile.lonvia.de/cycling/{z}/{x}/{y}.png';
+	var mapboxURL = 'https:\/\/a.tiles.mapbox.com\/v4\/mapbox.streets\/{z}\/{x}\/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpbTgzcHQxMzAxMHp0eWx4bWQ1ZHN2NGcifQ.WVwjmljKYqKciEZIC3NfLA';
 	var BING_KEY = 'AuhiCJHlGzhg93IqUH_oCpl_-ZUrIE6SPftlyGYUvr9Amx5nzA-WqGcPquyFZl4L';
-
-	var streets = L.tileLayer(osmURL,{maxZoom: 19});
-	var cycle = L.tileLayer(cyclesURL,{maxZoom: 19});
+	var osmURL = 'http://{s}.tile.osm.org/{z}/{x}/{y}.png';
+	var cyclesURL =  'http://tile.lonvia.de/cycling/{z}/{x}/{y}.png';
+	
+	var mapboLayer = L.tileLayer(mapboxURL,{maxZoom: 19});
 	var bingLayer = L.tileLayer.bing(BING_KEY);
+	var omsLayer = L.tileLayer(osmURL,{maxZoom: 19});
+	var cycle = L.tileLayer(cyclesURL,{maxZoom: 19});
+	
 	
 	var map = L.map('map',{
 		center: [-3.7487, -38.5243],
 		zoom: 14,
-		layers: [streets, cycle, bicicletar, bicicletario, airPump, bicicletaria]
+		layers: [mapboLayer, bingLayer,omsLayer, cycle, bicicletar, bicicletario, airPump, bicicletaria]
 	});
 	var base = {
-			"Open Street Map": streets,
+			"MapBox": mapboLayer,
 			"Bing Maps": bingLayer,
+			"Open Street Map": omsLayer,
 	};
 	var layers = {
 			"Infra Cicloviária": cycle,
