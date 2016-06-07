@@ -4,22 +4,22 @@ function initialize(){
 	
 	var bicicletar = new L.layerGroup();
 	var bicicletarIcon = L.icon({
-		iconUrl: 'js/icons/bicycle.png',
+		iconUrl: 'bicycle.png',
 		iconSize: [25,25]
 	});
 	var bicicletario = new L.layerGroup();
 	var bicicletarioIcon = L.icon({
-		iconUrl: 'js/icons/bike_park.png',
+		iconUrl: 'bike_park.png',
 		iconSize: [25, 25]
 	});
 	var airPump = new L.layerGroup();
 	var airPumpIcon = L.icon({
-		iconUrl: 'js/icons/airPump_icon.png',
+		iconUrl: 'airPump_icon.png',
 		iconSize: [25, 25]
 	});
 	var bicicletaria = new L.layerGroup();
 	var bicicletariaIcon = L.icon({
-		iconUrl: 'js/icons/bikeshop.png',
+		iconUrl: 'bikeshop.png',
 		iconSize: [25, 25]
 	});
 	for( var point in data.elements){
@@ -39,11 +39,13 @@ function initialize(){
 	var BING_KEY = 'AuhiCJHlGzhg93IqUH_oCpl_-ZUrIE6SPftlyGYUvr9Amx5nzA-WqGcPquyFZl4L';
 	var osmURL = 'http://{s}.tile.osm.org/{z}/{x}/{y}.png';
 	var cyclesURL =  'http://tile.lonvia.de/cycling/{z}/{x}/{y}.png';
+	var ocmapUrl = 'https://[abc].tile.thunderforest.com/cycle/{z}/{x}/{y}.png';
 	
 	var mapboLayer = L.tileLayer(mapboxURL,{maxZoom: 18});
 	var bingLayer = L.tileLayer.bing(BING_KEY);
 	var omsLayer = L.tileLayer(osmURL,{maxZoom: 18});
 	var cycle = L.tileLayer(cyclesURL,{maxZoom: 18});
+	var ocmap = L.tileLayer(ocmapUrl,{maxZoom: 18});
 	
 	
 	var map = L.map('map',{
@@ -55,6 +57,7 @@ function initialize(){
 			"MapBox": mapboLayer,
 			"Bing Maps": bingLayer,
 			"Open Street Map": omsLayer,
+			"OpenCycleMap": ocmap,
 	};
 	var layers = {
 			"Infra Cicloviária": cycle,
