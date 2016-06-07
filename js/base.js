@@ -28,7 +28,7 @@ function initialize(){
 				break;
 			case 'bicycle_parking' : L.marker([data.elements[point].lat, data.elements[point].lon], {icon: bicicletarioIcon}).bindPopup(data.elements[point].tags.name).addTo(bicicletario);
 				break;
-			case 'fuel' : L.marker([data.elements[point].lat, data.elements[point].lon], {icon: airPumpIcon}).bindPopup(data.elements[point].tags.name).addTo(airPump);
+			case 'fuel' : L.marker([data.elements[point].lat, data.elements[point].lon], {icon: airPumpIcon}).bindPopup('Posto '+data.elements[point].tags.name).addTo(airPump);
 				break;
 		}	
 		if(data.elements[point].tags.shop == "bicycle"){
