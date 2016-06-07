@@ -39,7 +39,7 @@ function initialize(){
 	var BING_KEY = 'AuhiCJHlGzhg93IqUH_oCpl_-ZUrIE6SPftlyGYUvr9Amx5nzA-WqGcPquyFZl4L';
 	var osmURL = 'http://{s}.tile.osm.org/{z}/{x}/{y}.png';
 	var cyclesURL =  'http://tile.lonvia.de/cycling/{z}/{x}/{y}.png';
-	var ocmapUrl = 'https://[abc].tile.thunderforest.com/cycle/{z}/{x}/{y}.png';
+	var ocmapUrl = 'https://{s}.tile.thunderforest.com/cycle/{z}/{x}/{y}.png';
 	
 	var mapboLayer = L.tileLayer(mapboxURL,{maxZoom: 18});
 	var bingLayer = L.tileLayer.bing(BING_KEY);
